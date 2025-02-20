@@ -7,13 +7,13 @@ body {
 
 /* Header styles */
 header {
-    background-color: #ffcccc; /* Light pink background */
+    background-color: #ffcce7; /* Light pink background */
     padding: 20px;
     text-align: center;
 }
 
 h1 {
-    color: rgb(255, 255, 255); /* Dark pink heading color */
+    color: rgb(0, 0, 0); /* Dark pink heading color */
 }
 
 nav ul {
@@ -27,7 +27,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: pink; /* Dark pink link color */
+    color: rgb(0, 0, 0); /* Dark pink link color */
     text-decoration: none;
 }
 
