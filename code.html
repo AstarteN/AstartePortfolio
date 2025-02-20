@@ -3,25 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astarte's Code Projects</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Astarte's Recent Websites (Not including this one) </title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <style>
+        /* CSS for the film page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Light gray background */
+            color: #333; /* Dark text color */
+            margin: 0;
+            padding: 0;
+            background-color: #ff6cb5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensures the body fills the screen */
+            flex-direction: column; /* Stacks content vertically */
+        }
+
+        header {
+            background-color: #ff6cb5; /* Dark pink background */
+            color: #fff; /* White text color */
+            padding: 20px 0; /* Add padding top and bottom, 0 left and right */
+            text-align: center;
+            width: 100%;
+        }
+
+        header h1 {
+            color: #ffffff; /* Change the color of the title to hot pink */
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1000px; /* Max width of container */
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center; /* Centers the text */
+        }
+
+        .bio {
+            background-color: rgb(127, 255, 232); /* White background */
+            padding: 20px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            border-radius: 10px;
+        }
+
+        .film-section {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .film {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center items horizontally and vertically */
+            margin-bottom: 40px; /* Add extra margin between sections */
+            width: 100%;
+            max-width: 800px; /* Adjust width to allow multiple films in a row */
+            background-color: rgb(127, 255, 232); /* Light gray background */
+            padding: 20px; /* Add padding for better visual appearance */
+            border-radius: 10px; /* Add border radius for rounded corners */
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .film img {
+            width: 100%; /* Make images take full width of the container */
+            max-width: 400px; /* Set max-width for responsiveness */
+            height: auto; /* Keep the aspect ratio intact */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Hover effect on image */
+        .film:hover img {
+            transform: scale(1.05); /* Slightly zoom in the image */
+            opacity: 0.9;
+        }
+
+        .project-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            display: none; /* Hide by default */
+            font-weight: bold;
+            font-size: 24px; /* Make text larger */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        /* Show "Click me to watch" text when hovering */
+        .film:hover .project-link {
+            display: block;
+        }
+
+        .project-link a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .film-description {
+            margin-top: 20px;
+            background-color: rgb(255, 255, 255);
+            padding: 15px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px 0;
+            background-color: #ff3d9e;
+            color: #fff;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>Astarte's Code Projects</h1>
+    <h1>Astarte's Films</h1>
     <div class="back-to-main">
         <a href="index.html">Back to Main Page</a>
     </div>
 </header>
 
 <div class="container">
-    <h2>Here are some of my recent code projects!</h2>
-    <ul>
-        <li><a href="https://astarten.github.io/DeeplyNestedObject/">Cosmic Calculus</a></li>
-        <li><a href="https://astarten.github.io/LizziesPerspectives/index.html">Lizzie's Perspectives</a></li>
-        <li><a href="https://astarten.itch.io/musks-mission">Musk's Mission</a></li>
-    </ul>
+    <div class="bio">
+        <p>Welcome to Astarte's Films page where you can explore her cinematic creations!</p>
+    </div>
+
+    <!-- Film section -->
+    <section class="film-section">
+        <!-- Film 1 -->
+        <div class="film">
+            <a href="https://www.youtube.com/watch?v=-Dh8EQxgKog" target="_blank">
+                <img src="theory.png" alt="Film 1 Image">
+                <div class="project-link">Click me to view</div>
+            </a>
+            <div class="film-description">
+                <p>Description of Film 1 goes here. A brief synopsis of the plot, themes, and production details.</p>
+            </div>
+        </div>
+
+        <!-- Film 2 -->
+        <div class="film">
+            <a href="https://astarten.github.io/LizziesPerspectives/" target="_blank">
+                <img src="lizard.png" alt="Film 2 Image">
+                <div class="project-link">Click me to view</div>
+            </a>
+            <div class="film-description">
+                <p>Description of Film 2 goes here. A brief synopsis of the plot, themes, and production details.</p>
+            </div>
+        </div>
+
+       
+
+    </section>
 </div>
 
 <footer>
@@ -30,3 +186,4 @@
 
 </body>
 </html>
+

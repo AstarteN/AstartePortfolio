@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astarte's Design Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background-color: #ff6cb5;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            width: 100%;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .soft-body-section {
+            width: 100%;
+            margin-top: 50px;
+            padding: 30px 0;
+            background-color: #f0f0f0;
+        }
+
+        .soft-body-section h2 {
+            font-size: 2rem;
+            color: #ff6cb5;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .soft-body-section .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .soft-body-section .soft-body-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            justify-items: center;
+        }
+
+        .soft-body-section .soft-body-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Video styling */
+        .soft-body-section video {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-top: -200px; /* Moved video upwards further */
+            object-fit: cover;
+            pointer-events: none; /* Disables interaction with the video */
+            -webkit-user-select: none; /* Prevent selection */
+            user-select: none;
+        }
+
+        /* Forcefully hide video controls */
+        .soft-body-section video::-webkit-media-controls {
+            display: none !important; /* Removes controls in webkit browsers */
+        }
+
+        .soft-body-section video::-moz-media-controls {
+            display: none !important; /* Removes controls in Firefox */
+        }
+
+        .soft-body-section video::-webkit-media-controls-enclosure {
+            display: none !important; /* Removes entire controls enclosure */
+        }
+
+        /* Disable any hover interaction */
+        .soft-body-section video::-webkit-media-controls-panel {
+            display: none !important;
+        }
+
+        .soft-body-section .description {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Astarte's Design Portfolio</h1>
+</header>
+
+<div class="container">
+    <section class="soft-body-section">
+        <h2>Soft Body Controller</h2>
+        <div class="content">
+            <p class="description">
+                I designed my plush controller using a Flora, conductive fabric, and conductive thread. I attached my conductive fabric using iron on interface to my fabric that was cut out into the shape of my plush controller. I had to sew the thread through the fabric and then through a pin on the Flora. The fabric was cut into the shape of an up and down arrow, similar to buttons on a keyboard. Everything fit into my plush controller, and it was a lot of fun to build.
+            </p>
+
+            <div class="soft-body-images">
+                <img src="controller1.png" alt="Controller Image 1">
+                <img src="controller2.png" alt="Controller Image 2">
+                <!-- Video Embed without controls and scrubbing -->
+                <video autoplay muted loop playsinline>
+                    <source src="controller3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
