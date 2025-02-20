@@ -13,7 +13,7 @@ header {
 }
 
 h1 {
-    color: rgb(0, 0, 0); /* Dark pink heading color */
+    color: rgb(255, 255, 255); /* Dark pink heading color */
 }
 
 nav ul {
@@ -27,7 +27,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #cc0066; /* Dark pink link color */
+    color: pink /* Dark pink link color */
     text-decoration: none;
 }
 
