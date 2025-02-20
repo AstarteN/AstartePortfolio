@@ -135,20 +135,15 @@ video {
 
 /* Moving image styles */
 
-/* Image of yourself next to the text in the header (on the left side) */
+/* Image of yourself below the header and centered */
 .moving-image {
-    position: absolute;
-    top: 15px; /* Keep it the same height */
-    left: 20px; /* Move it to the left side */
-    width: 230px; /* Keep the image size the same */
+    width: 230px; /* Set the image size */
     height: auto; /* Maintain aspect ratio */
-    z-index: 10; /* Ensure the image stays above other elements */
+    border-radius: 50%; /* Optional: Make the image circular */
+    object-fit: cover; /* Ensure the image fills the area */
+    margin: 20px auto; /* Center the image and give some space */
+    display: block; /* Center the image horizontally */
 }
-
-
-
-
-
 
 /* Animation for moving side to side */
 @keyframes moveImage {
