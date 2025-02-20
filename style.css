@@ -1,9 +1,8 @@
 /* Body styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(250, 97, 173), 0, 173); /* White background */
+    background-color: rgb(250, 97, 173); /* Light pink background */
     color: #333; /* Dark text color */
-    
 }
 
 /* Header styles */
@@ -45,16 +44,18 @@ nav ul li a:hover {
 
 /* Bio section styles */
 .bio {
-    background-color: #ffcccc; /* Light pink background */
+    background-color: #ff99cc; /* Light pink background */
     padding: 20px;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 /* Code Projects section styles */
 .code {
-    background-color: #ffb3b3; /* Light red background */
+    background-color: #ff99cc; /* Light pink background */
     padding: 20px;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 .github ul {
@@ -75,3 +76,89 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* AI OR US Project section */
+#ai-or-us {
+    background-color: #ff99cc; /* Light pink background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#ai-or-us:hover {
+    transform: translateY(-5px);
+}
+
+/* Hover effect for the AI OR US thumbnail */
+.thumbnail-link {
+    position: relative;
+    display: inline-block;
+}
+
+.project-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: transform 0.3s ease-in-out; /* Smooth transform on hover */
+}
+
+.project-image:hover {
+    transform: scale(1.1); /* Increase size when hovered */
+}
+
+.hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    visibility: hidden; /* Hidden by default */
+}
+
+.thumbnail-link:hover .hover-text {
+    visibility: visible; /* Show text when hovered */
+}
+
+video {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+/* Moving image styles */
+
+/* Image of yourself next to the text in the header (on the left side) */
+.moving-image {
+    position: absolute;
+    top: 15px; /* Keep it the same height */
+    left: 20px; /* Move it to the left side */
+    width: 230px; /* Keep the image size the same */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 10; /* Ensure the image stays above other elements */
+}
+
+
+
+
+
+
+/* Animation for moving side to side */
+@keyframes moveImage {
+    0% {
+        right: 0;
+    }
+    50% {
+        right: 10px; /* Move slightly left */
+    }
+    100% {
+        right: 0;
+    }
+}

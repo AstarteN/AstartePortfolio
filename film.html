@@ -14,6 +14,11 @@
             margin: 0;
             padding: 0;
             background-color: #ff6cb5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensures the body fills the screen */
+            flex-direction: column; /* Stacks content vertically */
         }
 
         header {
@@ -21,6 +26,7 @@
             color: #fff; /* White text color */
             padding: 20px 0; /* Add padding top and bottom, 0 left and right */
             text-align: center;
+            width: 100%;
         }
 
         header h1 {
@@ -28,59 +34,91 @@
         }
 
         .container {
-            max-width: 800px;
+            width: 80%;
+            max-width: 1000px; /* Max width of container */
             margin: 0 auto;
             padding: 20px;
+            text-align: center; /* Centers the text */
         }
 
         .bio {
             background-color: rgb(127, 255, 232); /* White background */
             padding: 20px;
             margin-bottom: 20px;
+            font-size: 1.2em;
+            border-radius: 10px;
         }
 
         .film-section {
             margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .film {
             display: flex;
-            justify-content: space-between;
-            align-items: center; /* Vertically center items */
+            justify-content: center;
+            align-items: center; /* Center items horizontally and vertically */
             margin-bottom: 40px; /* Add extra margin between sections */
-            width: 90%; /* Adjust the width of the film section */
-            margin: 0 auto; /* Center the film section */
-            background-color:rgb(127, 255, 232); /* Change the background color to light gray */
+            width: 100%;
+            max-width: 800px; /* Adjust width to allow multiple films in a row */
+            background-color: rgb(127, 255, 232); /* Light gray background */
             padding: 20px; /* Add padding for better visual appearance */
             border-radius: 10px; /* Add border radius for rounded corners */
-        }
-
-        .film-images {
-            display: flex;
-            justify-content: space-between; /* Ensure images stay side by side */
-            width: 100%; /* Adjust the width of the images container */
-            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
         }
 
         .film img {
-            width: 48%; /* Adjust the width of the images */
+            width: 100%; /* Make images take full width of the container */
             max-width: 400px; /* Set max-width for responsiveness */
+            height: auto; /* Keep the aspect ratio intact */
             border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Hover effect on image */
+        .film:hover img {
+            transform: scale(1.05); /* Slightly zoom in the image */
+            opacity: 0.9;
         }
 
         .project-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
-            width: 30%; /* Adjust the width of the project link */
+            color: #fff;
+            display: none; /* Hide by default */
+            font-weight: bold;
+            font-size: 24px; /* Make text larger */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        /* Show "Click me to watch" text when hovering */
+        .film:hover .project-link {
+            display: block;
         }
 
         .project-link a {
-            display: block; /* Make the link fill the entire width */
             color: #fff;
-            background-color: #ff6cb5; /* Dark pink background */
-            padding: 10px;
-            border-radius: 5px;
             text-decoration: none;
-            font-weight: bold;
+        }
+
+        .film-description {
+            margin-top: 20px;
+            background-color: rgb(255, 255, 255);
+            padding: 15px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
         }
 
         footer {
@@ -89,12 +127,14 @@
             padding: 10px 0;
             background-color: #ff3d9e;
             color: #fff;
+            width: 100%;
         }
 
         footer a {
             color: #fff;
             text-decoration: none;
         }
+
     </style>
 </head>
 <body>
@@ -108,39 +148,66 @@
 
 <div class="container">
     <div class="bio">
-    
         <p>Welcome to Astarte's Films page where you can explore her cinematic creations!</p>
     </div>
 
     <!-- Film section -->
     <section class="film-section">
+        <!-- Film 1 -->
         <div class="film">
-            <div class="film-images">
-                <img src="Person1.png" alt="Film 1 Image 1">
-                <img src="Person2.png" alt="Film 1 Image 2">
-            </div>
-            <div class="project-link">
-                <h3><a href="https://youtu.be/YRy0SHLJ9ys">Project 1</a></h3>
+            <a href="https://www.youtube.com/watch?v=-Dh8EQxgKog" target="_blank">
+                <img src="aipart2.png" alt="Film 1 Image">
+                <div class="project-link">Click me to watch</div>
+            </a>
+            <div class="film-description">
+                <p>Description of Film 1 goes here. A brief synopsis of the plot, themes, and production details.</p>
             </div>
         </div>
+
+        <!-- Film 2 -->
         <div class="film">
-            <div class="film-images">
-                <img src="TheMan1.png" alt="Film 2 Image 1">
-                <img src="TheMan2.png" alt="Film 2 Image 2">
-            </div>
-            <div class="project-link">
-                <h3><a href="https://youtu.be/i3wLhBr-AoE">Project 2</a></h3>
+            <a href="https://www.youtube.com/watch?v=wRpBfTLQLN4" target="_blank">
+                <img src="aipart3.png" alt="Film 2 Image">
+                <div class="project-link">Click me to watch</div>
+            </a>
+            <div class="film-description">
+                <p>Description of Film 2 goes here. A brief synopsis of the plot, themes, and production details.</p>
             </div>
         </div>
+
+        <!-- Film 3 -->
         <div class="film">
-            <div class="film-images">
-                <img src="TheEnd1.png" alt="Film 3 Image 1">
-                <img src="TheEnd2.png" alt="Film 3 Image 2">
-            </div>
-            <div class="project-link">
-                <h3><a href="https://www.youtube.com/watch?v=h_G6Q8MMY4E">Project 3</a></h3>
+            <a href="https://www.youtube.com/watch?v=9ilamttUIiE&t=2s" target="_blank">
+                <img src="TheBallThumbnail.png" alt="Film 3 Image">
+                <div class="project-link">Click me to watch</div>
+            </a>
+            <div class="film-description">
+                <p>Description of Film 3 goes here. A brief synopsis of the plot, themes, and production details.</p>
             </div>
         </div>
+
+        <!-- Film 4 -->
+        <div class="film">
+            <a href="https://www.youtube.com/watch?v=i3wLhBr-AoE&t=7s" target="_blank">
+                <img src="THEMANTHUMBNAIL.png" alt="Film 4 Image">
+                <div class="project-link">Click me to watch</div>
+            </a>
+            <div class="film-description">
+                <p>Description of Film 4 goes here. A brief synopsis of the plot, themes, and production details.</p>
+            </div>
+        </div>
+
+        <!-- Film 5 -->
+        <div class="film">
+            <a href="https://www.youtube.com/watch?v=PxAHScji1Mk&t=1s" target="_blank">
+                <img src="iflukescouldkill.png" alt="Film 5 Image">
+                <div class="project-link">Click me to watch</div>
+            </a>
+            <div class="film-description">
+                <p>Description of Film 5 goes here. A brief synopsis of the plot, themes, and production details.</p>
+            </div>
+        </div>
+
     </section>
 </div>
 
