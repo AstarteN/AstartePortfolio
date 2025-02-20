@@ -27,7 +27,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: pink /* Dark pink link color */
+    color: pink; /* Dark pink link color */
     text-decoration: none;
 }
 
