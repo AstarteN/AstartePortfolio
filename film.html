@@ -27,6 +27,27 @@
             color: #ffffff; /* Change the color of the title to hot pink */
         }
 
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #ff3d9e;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -115,10 +136,14 @@
 
 <header>
     <h1>Astarte's Films</h1>
-    <div class="back-to-main">
-        <a href="index.html">Back to Main Page</a>
-    </div>
 </header>
+
+<!-- Navigation bar -->
+<div class="navbar">
+    <a href="index.html">Main Page</a>
+    <a href="design.html">Design Projects</a>
+    <a href="code.html">Code Projects</a>
+</div>
 
 <div class="container">
     <div class="bio">

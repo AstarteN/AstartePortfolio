@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astarte's Design Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Astarte's Designs</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
     <style>
         /* Basic reset */
         * {
@@ -20,18 +20,56 @@
             color: #333;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
-            padding-bottom: 60px;
+            padding-bottom: 60px; /* Ensure content doesn't hide under fixed footer */
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            background-color: #ff6cb5;
+            border-top: 3px solid #ff4b99; /* Adds border at the top */
+            padding: 10px 0;
+            top: 80px; /* Place below the header */
+            left: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Page content padding to prevent overlap with nav */
+        .container {
+            margin-top: 150px; /* Adjust to account for the header and nav bar height */
         }
 
         header {
             background-color: #ff6cb5;
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 30px 0;
             width: 100%;
         }
 
@@ -39,26 +77,98 @@
             font-size: 2.5rem;
         }
 
-        /* Navigation */
-        .nav-links {
-            display: flex;
-            justify-content: center;
+        /* Design Section */
+        .design-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
-            margin-top: 20px;
-            font-size: 1rem;
-            padding: 10px;
-            border: 2px solid #ff6cb5;
-            border-radius: 10px;
-            background-color: #fff;
+            width: 100%;
+            margin-top: 30px;
         }
 
-        .nav-links a {
-            text-decoration: none;
+        .design-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .design-card:hover {
+            transform: scale(1.05);
+        }
+
+        .design-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 5px solid #ff6cb5;
+        }
+
+        .design-card .content {
+            padding: 20px;
+        }
+
+        .design-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             color: #333;
+        }
+
+        .design-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Overlay for hover effect */
+        .design-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
-        /* Soft Body Controller Section */
+        .design-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay a {
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #ff6cb5;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: fixed; /* Keeps the footer fixed at the bottom */
+            bottom: 0;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* New Soft Body Controller Section */
         .soft-body-section {
             width: 100%;
             margin-top: 50px;
@@ -82,9 +192,9 @@
         .soft-body-section .soft-body-images {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 10px; /* Reduced gap */
             margin-top: 20px;
-            justify-items: center;
+            justify-items: center; /* Ensures the content (images & video) are centered */
         }
 
         .soft-body-section .soft-body-images img {
@@ -93,35 +203,15 @@
             border-radius: 10px;
         }
 
-        /* Video styling */
+        /* Aligning the video to the left and moving it up */
         .soft-body-section video {
-            width: 80%; /* Ensures video takes up 80% of the width */
-            max-width: 800px; /* Ensures the video doesn't grow too large */
+            max-width: 50%; /* Adjusts the size of the video */
             height: auto;
-            display: block;
-            margin-top: -200px; /* Moved video upwards */
-            object-fit: contain; /* Keeps the aspect ratio intact */
-            pointer-events: none; /* Disables interaction with the video */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Forcefully hide video controls */
-        .soft-body-section video::-webkit-media-controls {
-            display: none !important; /* Removes controls in webkit browsers */
-        }
-
-        .soft-body-section video::-moz-media-controls {
-            display: none !important; /* Removes controls in Firefox */
-        }
-
-        .soft-body-section video::-webkit-media-controls-enclosure {
-            display: none !important; /* Removes entire controls enclosure */
-        }
-
-        /* Disable any hover interaction */
-        .soft-body-section video::-webkit-media-controls-panel {
-            display: none !important;
+            border-radius: 10px;
+            margin-top: -200px; /* Moves the video up */
+            display: block; /* Makes the video a block-level element */
+            margin-left: 0; /* Moves the video to the left */
+            margin-right: auto; /* Ensures it's aligned left */
         }
 
         .soft-body-section .description {
@@ -135,38 +225,97 @@
 </head>
 <body>
 
+<!-- Header -->
 <header>
     <h1>Astarte's Design Portfolio</h1>
 </header>
 
-<!-- Navigation Links -->
-<div class="nav-links">
-    <a href="index.html">Main Page</a>
-    <a href="code.html">Code Projects</a>
-    <a href="film.html">Film Projects</a>
-    <a href="design.html">Design Projects</a>
-</div>
+<!-- Navigation bar below the header -->
+<nav>
+    <ul>
+        <li><a href="index.html">Main Page</a></li>
+        <li><a href="code.html">Code Projects</a></li>
+        <li><a href="film.html">Film Projects</a></li>
+    </ul>
+</nav>
 
 <div class="container">
+    <!-- Section for showcasing designs -->
+    <section class="design-section">
+        <!-- Design 1 -->
+        <div class="design-card">
+            <img src="elon.png" alt="Design 1">
+            <div class="content">
+                <h3>Musk's Mission</h3>
+                <p>This game was designed to be played by Astarte's soft body controller. The controller was made using Arduino, conductive 
+                    thread, and lots of dedication. Images of the controller can be found on this page.
+                </p>
+            </div>
+            <div class="overlay">
+                <a href="https://astarten.itch.io/musks-mission" target="_blank">Click me to view</a>
+            </div>
+        </div>
+
+        <!-- Design 2 -->
+        <div class="design-card">
+            <img src="data.png" alt="Design 2">
+            <div class="content">
+                <h3>Insta Data Search </h3>
+                <p>Astarte developed this game as a way to experiment with how data can be displayed. She downloaded her data directly
+                from Instagram and placed within the neighborhood a few pieces of this data.</p>
+            </div>
+            <div class="overlay">
+                <a href="https://astarten.itch.io/instadatasearch" target="_blank">Click me to view</a>
+            </div>
+        </div>
+
+        <!-- Design 3 -->
+        <div class="design-card">
+            <img src="scare.png" alt="Design 3">
+            <div class="content">
+                <h3>Horror Game</h3>
+                <p>One of Astarte's first ever game designs.</p>
+            </div>
+            <div class="overlay">
+                <a href="https://astarten.itch.io/my-game" target="_blank">Click me to view</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Soft Body Controller Section -->
     <section class="soft-body-section">
         <h2>Soft Body Controller</h2>
         <div class="content">
             <p class="description">
-                I designed my plush controller using a Flora, conductive fabric, and conductive thread. I attached my conductive fabric using iron-on interfacing to my fabric, which was cut out into the shape of my plush controller. I had to sew the thread through the fabric and then through a pin on the Flora. The fabric was cut into the shape of an up and down arrow, similar to buttons on a keyboard. Everything fit into my plush controller, and it was a lot of fun to build.
+                I designed my plush controller using a Flora, conductive fabric, and conductive thread. I attached my conductive fabric using iron on interface to my fabric that was cut out into the shape of my plush controller. I had to sew the thread through the fabric and then through a pin on the Flora. The fabric was cut into the shape of an up and down arrow, similar to buttons on a keyboard. 
+                Everything fit into my plush controller, it took some time using an X-acto knife to cut through the plush in order to make the shape of the arrows but everything fit in well.
+                <br>
+                <br>
+                The look and feel of it was extremely comfortable and other classmates seemed to really enjoy this idea too.
+                <br><br>
+                The Arduino code took a lot of playing around with before the accuracy of the controller was at its best.
+                Designing the game took hours even though it was so simple in nature, between the repeating backgrounds and drawing the characters. 
+                In the end, I learned a lot about Arduino and working with these materials. 
             </p>
 
+            <!-- Soft Body Controller Images -->
             <div class="soft-body-images">
                 <img src="controller1.png" alt="Controller Image 1">
                 <img src="controller2.png" alt="Controller Image 2">
-                <!-- Video Embed without controls and scrubbing -->
-                <video autoplay muted loop>
-                    <source src="controller3.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
             </div>
+
+            <!-- Video moved up slightly and aligned to the left -->
+            <video autoplay muted loop>
+                <source src="controller3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
 </div>
+
+<footer>
+    <p>Designed by Astarte</p>
+</footer>
 
 </body>
 </html>
