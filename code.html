@@ -1,217 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astarte's Recent Websites (Not including this one) </title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
-    <style>
-        /* CSS for the code projects page */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ff6cb5; /* Pink background */
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            flex-direction: column;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Astarte's Code Projects</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        header {
-            background-color: #ff6cb5;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            margin: 0;
-        }
+    /* Page palette & typography */
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #fffaf0; /* ivory */
+      color: #333333;
+      line-height: 1.6;
+    }
 
-        header h1 {
-            color: #ffffff;
-        }
+    /* Header */
+    header {
+      background-color: #fffaf0;
+      padding: 30px 20px 10px;
+      text-align: center;
+      border-bottom: 1px solid #e6c87c;
+    }
 
-        /* Navigation bar */
-        nav {
-            margin-top: 10px;
-        }
+    header h1 {
+      color: #bfa14c; /* gold */
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: center;
-        }
+    /* Top nav */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      padding: 14px 0 22px;
+      background-color: transparent;
+    }
 
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
+    nav a {
+      color: #bfa14c;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 10px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    nav a:hover {
+      color: #8c7b42;
+      background-color: rgba(191,161,76,0.06);
+      border-radius: 6px;
+    }
 
-        nav ul li a:hover {
-            background-color: #ddd;
-            color: black;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 30px auto 80px;
+      padding: 0 20px;
+    }
 
-        .container {
-            width: 80%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 200px 20px 20px; /* account for header */
-            text-align: center;
-        }
+    .bio {
+      background: #fffdf7;
+      border: 1px solid #e6c87c;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      color: #4a4a4a;
+      font-size: 1.05rem;
+    }
 
-        .bio {
-            background-color: rgb(127, 255, 232);
-            padding: 20px;
-            margin-bottom: 20px;
-            font-size: 1.2em;
-            border-radius: 10px;
-        }
+    /* Projects list */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
 
-        .film-section {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .project {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid #e6c87c;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
 
-        .film {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 40px;
-            width: 100%;
-            max-width: 800px;
-            background-color: rgb(127, 255, 232);
-            padding: 20px;
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-            margin-top: 20px;
-        }
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+    }
 
-        .film img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
+    /* Thumbnail column */
+    .project-thumb {
+      flex: 0 0 360px; /* fixed-ish column on wide screens */
+      max-width: 360px;
+      overflow: hidden;
+      background: #fffaf8;
+    }
 
-        .film:hover img {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
 
-        .project-link {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #fff;
-            display: none;
-            font-weight: bold;
-            font-size: 24px;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 5px;
-        }
+    .project:hover .project-thumb img {
+      transform: scale(1.03);
+      filter: brightness(0.97);
+      box-shadow: 0 6px 18px rgba(191,161,76,0.12); /* subtle gold glow */
+    }
 
-        .film:hover .project-link {
-            display: block;
-        }
+    /* Content column */
+    .project-content {
+      padding: 22px;
+      flex: 1;
+      min-width: 0; /* prevents overflow */
+    }
 
-        .film-description {
-            margin-top: 20px;
-            background-color: rgb(255, 255, 255);
-            padding: 15px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-        }
+    .project-content h3 {
+      color: #b8860b;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
 
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding: 10px 0;
-            background-color: #ff3d9e;
-            color: #fff;
-            width: 100%;
-        }
+    .project-content p {
+      color: #4a4a4a;
+      margin-bottom: 14px;
+    }
 
-        footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-    </style>
+    .project-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: #bfa14c;
+      color: #fffaf0;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(191,161,76,0.18);
+    }
+
+    .meta {
+      color: #8c7b42;
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    /* Footer */
+    footer {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 20px;
+      text-align: center;
+      color: #bfa14c;
+      border-top: 1px solid #e6c87c;
+    }
+
+    footer a { color: #bfa14c; text-decoration: none; font-weight:700; }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .project { flex-direction: column; }
+      .project-thumb { flex: 0 0 auto; width: 100%; max-width: none; }
+      .project-thumb img { aspect-ratio: 16/9; }
+      .project-content { padding: 16px; }
+      .container { margin: 20px auto 60px; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Astarte's Codes</h1>
-    <!-- Navigation Bar -->
+  <header>
+    <h1>Astarte's Code Projects</h1>
     <nav>
-        <ul>
-            <li><a href="index.html">Main Page</a></li>
-            <li><a href="writing.html">Writing</a></li>
-            <li><a href="design.html">Design Projects</a></li>
-            <li><a href="film.html">Film Projects</a></li>
-        </ul>
+      <a href="index.html">Main Page</a>
+      <a href="writing.html">Writing</a>
+      <a href="design.html">Design</a>
+      <a href="film.html">Film</a>
     </nav>
-</header>
+  </header>
 
-<div class="container">
-    <div class="bio">
-        <p>Here you can find some of Astarte's recent code projects</p>
-    </div>
-
-    <!-- Projects section -->
-    <section class="film-section">
-        <!-- Project 1 -->
-        <div class="film">
-            <a href="https://astarten.github.io/DeeplyNestedObject/index.html/" target="_blank">
-                <img src="theory.png" alt="Project 1 Image">
-                <div class="project-link">Click me to view</div>
-            </a>
-            <div class="film-description">
-                <p>Calculate E=mc^2 using Astarte's API. Simply enter in any number and get an immediate response in real time!</p>
-            </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="film">
-            <a href="https://astarten.github.io/LizziesPerspectives/" target="_blank">
-                <img src="lizard.png" alt="Project 2 Image">
-                <div class="project-link">Click me to view</div>
-            </a>
-            <div class="film-description">
-                <p>A simple walk through of Astarte's Lizard</p>
-            </div>
-        </div>
+  <main class="container">
+    <section class="bio">
+      <p>Here are a selection of recent websites and code experiments — small interactive pieces, playful interfaces, and creative APIs.</p>
     </section>
-</div>
 
-<footer>
+    <section class="projects">
+      <article class="project">
+        <div class="project-thumb">
+          <a href="https://astarten.github.io/DeeplyNestedObject/index.html/" target="_blank" rel="noopener">
+            <img src="theory.png" alt="Deeply Nested Object project">
+          </a>
+        </div>
+
+        <div class="project-content">
+          <h3>DeeplyNestedObject — Interactive Demo</h3>
+          <p>A small interactive demo that explores nested data structures and live computations. Enter numbers and watch instant visual feedback driven by a lightweight API.</p>
+
+          <div class="project-actions">
+            <a class="btn" href="https://astarten.github.io/DeeplyNestedObject/index.html/" target="_blank" rel="noopener">View Project</a>
+            <span class="meta">HTML • JS • Creative Coding</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-thumb">
+          <a href="https://astarten.github.io/LizziesPerspectives/" target="_blank" rel="noopener">
+            <img src="lizard.png" alt="Lizzie's Perspectives project">
+          </a>
+        </div>
+
+        <div class="project-content">
+          <h3>Lizzie's Perspectives</h3>
+          <p>A playful interactive walkthrough exploring perspective and surprise — built with careful attention to animation timing and responsive layout.</p>
+
+          <div class="project-actions">
+            <a class="btn" href="https://astarten.github.io/LizziesPerspectives/" target="_blank" rel="noopener">View Project</a>
+            <span class="meta">HTML • CSS • JS</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
     <p><a href="index.html">Back to Main Page</a></p>
-</footer>
+  </footer>
 
 </body>
 </html>
