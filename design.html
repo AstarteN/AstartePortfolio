@@ -1,323 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astarte's Designs</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astarte's Design Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Page styling */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-        }
+    body {
+      font-family: "Georgia", serif;
+      background-color: #fffaf2; /* Ivory background */
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Navigation Bar */
-        nav {
-            width: 100%;
-            background-color: #ff3d9e; /* Hot pink color */
-            border-top: 3px solid #ff4b99; /* Adds border at the top */
-            padding: 10px 0;
-            position: sticky; /* Sticky navigation bar */
-            top: 0; /* Stick to the top */
-            left: 0;
-            z-index: 100;
-            margin-top: 0; /* Remove space between header and nav */
-        }
+    header {
+      background-color: #fff8e7; /* Soft ivory-gold tone */
+      color: #b8860b; /* Gold text */
+      text-align: center;
+      padding: 30px 0;
+      border-bottom: 2px solid #e6c87c;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
 
-        nav ul li {
-            margin: 0 20px;
-        }
+    /* Navbar styling */
+    nav {
+      background-color: #f5deb3; /* Light gold */
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e6c87c;
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem; /* Same font size as in film.html */
-       
-        }
+    nav a {
+      color: #2c2c2c;
+      text-decoration: none;
+      padding: 14px 20px;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
 
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
+    nav a:hover {
+      background-color: #fff3cd;
+      color: #b8860b;
+    }
 
-        /* Page content padding to prevent overlap with nav */
-        .container {
-            margin-top: 20px; /* Slight margin for spacing */
-        }
+    /* Main container */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
 
-        header {
-            background-color: #ff92c8;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            width: 100%;
-            margin-bottom: 0; /* No margin, ensures no space between header and nav */
-        }
+    /* Bio box */
+    .bio {
+      background-color: #fffdf7;
+      border: 1px solid #e6c87c;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: 500;
+      color: #4a4a4a;
+      font-size: 1.1rem;
+    }
 
-        header h1 {
-            font-size: 2.5rem;
-        }
+    /* Design grid */
+    .design-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
 
-        /* Design Section */
-        .design-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            width: 100%;
-            margin-top: 30px;
-        }
+    .design-card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #e6c87c;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .design-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            transition: transform 0.3s ease-in-out;
-        }
+    .design-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
 
-        .design-card:hover {
-            transform: scale(1.05);
-        }
+    .design-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 3px solid #e6c87c;
+    }
 
-        .design-card img {
-            width: 100%;
-            height: auto;
-            border-bottom: 5px solid  #000000;
-        }
+    .design-card .content {
+      padding: 20px;
+    }
 
-        .design-card .content {
-            padding: 20px;
-        }
+    .design-card h3 {
+      font-size: 1.4rem;
+      color: #b8860b;
+      margin-bottom: 10px;
+    }
 
-        .design-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
+    .design-card p {
+      font-size: 1rem;
+      color: #4a4a4a;
+    }
 
-        .design-card p {
-            font-size: 1rem;
-            color: #666;
-        }
+    /* Overlay */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 248, 231, 0.8);
+      color: #2c2c2c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-weight: bold;
+      font-size: 1.2rem;
+      backdrop-filter: blur(2px);
+    }
 
-        /* Overlay for hover effect */
-        .design-card .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+    .design-card:hover .overlay {
+      opacity: 1;
+    }
 
-        .design-card:hover .overlay {
-            opacity: 1;
-        }
+    .overlay a {
+      color: #b8860b;
+      text-decoration: none;
+      background-color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: 1px solid #e6c87c;
+      transition: all 0.3s ease;
+    }
 
-        .overlay a {
-            color: white;
-            text-decoration: none;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
+    .overlay a:hover {
+      background-color: #fff8dc;
+    }
 
-        footer {
-            background-color: #ff6cb5;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            width: 100%;
-            position: fixed; /* Keeps the footer fixed at the bottom */
-            bottom: 0;
-            left: 0;
-            font-size: 1rem;
-        }
+    /* Soft Body Section */
+    .soft-body-section {
+      margin-top: 60px;
+      background-color: #fffef8;
+      border: 1px solid #e6c87c;
+      border-radius: 12px;
+      padding: 40px;
+    }
 
-        footer a {
-            color: white;
-            text-decoration: none;
-        }
+    .soft-body-section h2 {
+      text-align: center;
+      color: #b8860b;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
 
-        /* New Soft Body Controller Section */
-        .soft-body-section {
-            width: 100%;
-            margin-top: 50px;
-            padding: 30px 0;
-            background-color: #f0f0f0;
-        }
+    .soft-body-section .description {
+      text-align: center;
+      color: #4a4a4a;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
 
-        .soft-body-section h2 {
-            font-size: 2rem;
-            color: #ff6cb5;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .soft-body-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
 
-        .soft-body-section .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .soft-body-images img {
+      width: 45%;
+      border-radius: 10px;
+      border: 1px solid #e6c87c;
+      transition: transform 0.3s ease;
+    }
 
-        .soft-body-section .soft-body-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 10px; /* Reduced gap */
-            margin-top: 20px;
-            justify-items: center; /* Ensures the content (images & video) are centered */
-        }
+    .soft-body-images img:hover {
+      transform: scale(1.05);
+    }
 
-        .soft-body-section .soft-body-images img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
+    video {
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+      width: 60%;
+      border: 1px solid #e6c87c;
+    }
 
-        /* Aligning the video to the left and moving it up */
-        .soft-body-section video {
-            max-width: 50%; /* Adjusts the size of the video */
-            height: auto;
-            border-radius: 10px;
-            margin-top: -200px; /* Moves the video up */
-            display: block; /* Makes the video a block-level element */
-            margin-left: 0; /* Moves the video to the left */
-            margin-right: auto; /* Ensures it's aligned left */
-        }
+    footer {
+      background-color: #fff8e7;
+      color: #2c2c2c;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 50px;
+      border-top: 1px solid #e6c87c;
+      font-weight: 500;
+    }
 
-        .soft-body-section .description {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 800px;
-            margin-top: 20px;
-        }
-    </style>
+    footer a {
+      color: #b8860b;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
-    <h1>Astarte's Design Portfolio</h1>
+  <h1>Astarte's Design Portfolio</h1>
 </header>
 
-<!-- Navigation bar below the header, sticky at the top -->
 <nav>
-    <ul>
-        <li><a href="index.html">Main Page</a></li>
-        <li><a href="code.html">Code Projects</a></li>
-        <li><a href="film.html">Film Projects</a></li>
-    </ul>
+  <a href="index.html">Main Page</a>
+  <a href="code.html">Code Projects</a>
+  <a href="film.html">Film Projects</a>
 </nav>
 
 <div class="container">
-    <!-- Section for showcasing designs -->
-    <section class="design-section">
-        <!-- Design 1 -->
-        <div class="design-card">
-            <img src="elon.png" alt="Design 1">
-            <div class="content">
-                <h3>Musk's Mission</h3>
-                <p>This game was designed to be played by Astarte's soft body controller. The controller was made using Arduino, conductive 
-                    thread, and lots of dedication. Images of the controller can be found on this page.
-                </p>
-            </div>
-            <div class="overlay">
-                <a href="https://astarten.itch.io/musks-mission" target="_blank">Click me to view</a>
-            </div>
-        </div>
+  <div class="bio">
+    <p>Welcome to Astarte's Design page — where creativity meets technology through interactive and visual experiments.</p>
+  </div>
 
-        <!-- Design 2 -->
-        <div class="design-card">
-            <img src="data.png" alt="Design 2">
-            <div class="content">
-                <h3>Insta Data Search </h3>
-                <p>Astarte developed this game as a way to experiment with how data can be displayed. She downloaded her data directly
-                from Instagram and placed within the neighborhood a few pieces of this data.</p>
-            </div>
-            <div class="overlay">
-                <a href="https://astarten.itch.io/instadatasearch" target="_blank">Click me to view</a>
-            </div>
-        </div>
+  <section class="design-section">
+    <div class="design-card">
+      <img src="elon.png" alt="Design 1">
+      <div class="content">
+        <h3>Musk's Mission</h3>
+        <p>A custom game created for Astarte's soft body controller using Arduino and conductive materials.</p>
+      </div>
+      <div class="overlay">
+        <a href="https://astarten.itch.io/musks-mission" target="_blank">Click me to view</a>
+      </div>
+    </div>
 
-        <!-- Design 3 -->
-        <div class="design-card">
-            <img src="scare.png" alt="Design 3">
-            <div class="content">
-                <h3>Horror Game</h3>
-                <p>One of Astarte's first ever game designs.</p>
-            </div>
-            <div class="overlay">
-                <a href="https://astarten.itch.io/my-game" target="_blank">Click me to view</a>
-            </div>
-        </div>
-    </section>
+    <div class="design-card">
+      <img src="data.png" alt="Design 2">
+      <div class="content">
+        <h3>Insta Data Search</h3>
+        <p>A digital exploration of personal data visualized through a neighborhood-style interactive game.</p>
+      </div>
+      <div class="overlay">
+        <a href="https://astarten.itch.io/instadatasearch" target="_blank">Click me to view</a>
+      </div>
+    </div>
 
-    <!-- New Soft Body Controller Section -->
-    <section class="soft-body-section">
-        <h2>Soft Body Controller</h2>
-        <div class="content">
-            <p class="description">
-                I designed my plush controller using a Flora, conductive fabric, and conductive thread. I attached my conductive fabric using iron on interface to my fabric that was cut out into the shape of my plush controller. I had to sew the thread through the fabric and then through a pin on the Flora. The fabric was cut into the shape of an up and down arrow, similar to buttons on a keyboard. 
-                Everything fit into my plush controller, it took some time using an X-acto knife to cut through the plush in order to make the shape of the arrows but everything fit in well.
-                <br>
-                <br>
-                The look and feel of it was extremely comfortable and other classmates seemed to really enjoy this idea too.
-                <br><br>
-                The Arduino code took a lot of playing around with before the accuracy of the controller was at its best.
-                Designing the game took hours even though it was so simple in nature, between the repeating backgrounds and drawing the characters. 
-                In the end, I learned a lot about Arduino and working with these materials. 
-            </p>
+    <div class="design-card">
+      <img src="scare.png" alt="Design 3">
+      <div class="content">
+        <h3>Horror Game</h3>
+        <p>One of Astarte’s first experiments with game design — eerie, immersive, and unexpected.</p>
+      </div>
+      <div class="overlay">
+        <a href="https://astarten.itch.io/my-game" target="_blank">Click me to view</a>
+      </div>
+    </div>
+  </section>
 
-            <!-- Soft Body Controller Images -->
-            <div class="soft-body-images">
-                <img src="controller1.png" alt="Controller Image 1">
-                <img src="controller2.png" alt="Controller Image 2">
-            </div>
+  <section class="soft-body-section">
+    <h2>Soft Body Controller</h2>
+    <p class="description">
+      Astarte’s plush controller was created using a Flora, conductive thread, and fabric. The device allowed intuitive physical play and inspired new forms of tactile interaction in digital art.
+    </p>
 
-            <!-- Video moved up slightly and aligned to the left -->
-            <video autoplay muted loop>
-                <source src="controller3.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
+    <div class="soft-body-images">
+      <img src="controller1.png" alt="Controller Image 1">
+      <img src="controller2.png" alt="Controller Image 2">
+    </div>
+
+    <video autoplay muted loop>
+      <source src="controller3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
 </div>
 
 <footer>
-    <p>Designed by Astarte</p>
+  <p><a href="index.html">Back to Main Page</a></p>
 </footer>
 
 </body>
 </html>
+
