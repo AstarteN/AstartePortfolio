@@ -1,159 +1,173 @@
 /* Body styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(250, 97, 173); /* Light pink background */
-    color: #333; /* Dark text color */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #fffaf0; /* ivory */
+    color: #333333; /* dark charcoal for readability */
+    margin: 0;
+    padding: 0;
 }
 
 /* Header styles */
 header {
-    background-color: #ffcce7; /* Light pink background */
-    padding: 20px;
+    background-color: #fffaf0;
+    padding: 20px 20px 10px;
     text-align: center;
 }
 
-h1 {
-    color: rgb(0, 0, 0); /* Dark pink heading color */
+header h1 {
+    color: #bfa14c; /* gold accent */
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+header p {
+    color: #8c7b42; /* muted gold */
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-top: 10px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
 }
 
 nav ul li a {
-    color: rgb(0, 0, 0); /* Dark pink link color */
+    color: #bfa14c; /* gold */
     text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
+    color: #8c7b42;
     text-decoration: underline;
 }
 
-/* Container styles */
+/* Container */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto 50px;
+    padding: 0 20px;
 }
 
-/* Bio section styles */
-.bio {
-    background-color: #ff99cc; /* Light pink background */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
+/* Two-column layout for picture and bio */
+.top-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
-/* Code Projects section styles */
-.code {
-    background-color: #ff99cc; /* Light pink background */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
-
-.github ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.github li {
-    margin-bottom: 10px;
-}
-
-.github a {
-    color: #cc0066; /* Dark pink link color */
-    text-decoration: none;
-}
-
-.github a:hover {
-    text-decoration: underline;
-}
-
-/* AI OR US Project section */
-#ai-or-us {
-    background-color: #ff99cc; /* Light pink background */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-}
-
-#ai-or-us:hover {
-    transform: translateY(-5px);
-}
-
-/* Hover effect for the AI OR US thumbnail */
-.thumbnail-link {
-    position: relative;
-    display: inline-block;
-}
-
-.project-image {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    margin-top: 10px;
-    transition: transform 0.3s ease-in-out; /* Smooth transform on hover */
-}
-
-.project-image:hover {
-    transform: scale(1.1); /* Increase size when hovered */
-}
-
-.hover-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    visibility: hidden; /* Hidden by default */
-}
-
-.thumbnail-link:hover .hover-text {
-    visibility: visible; /* Show text when hovered */
-}
-
-video {
-    width: 100%;
-    max-width: 600px;
-    margin-top: 15px;
-    border-radius: 10px;
-}
-
-/* Moving image styles */
-
-/* Image of yourself below the header and centered */
 .moving-image {
-    width: 230px; /* Set the image size */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Optional: Make the image circular */
-    object-fit: cover; /* Ensure the image fills the area */
-    margin: 20px auto; /* Center the image and give some space */
-    display: block; /* Center the image horizontally */
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #bfa14c; /* subtle gold border */
 }
 
-/* Animation for moving side to side */
-@keyframes moveImage {
-    0% {
-        right: 0;
+/* Bio section */
+.bio {
+    flex: 1;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #333333; /* dark charcoal for readability */
+}
+
+.bio h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: 400;
+    border-bottom: 2px solid #bfa14c; /* gold accent */
+    padding-bottom: 5px;
+}
+
+/* Project Box section */
+.project-box {
+    text-align: center;
+    margin-top: 10px; /* aligned with bio */
+}
+
+.project-box h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+    border-bottom: 2px solid #bfa14c;
+    padding-bottom: 5px;
+    color: #bfa14c;
+}
+
+.project-box p {
+    margin-bottom: 15px;
+    color: #8c7b42;
+}
+
+.project-box img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    border: 2px solid #bfa14c;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-box img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #bfa14c;
+}
+
+/* Read Zura Button */
+.read-zura-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.read-zura-button {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fffaf0; /* ivory text on gold button */
+    background-color: #bfa14c; /* gold */
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.read-zura-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #bfa14c;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    color: #bfa14c;
+    border-top: 1px solid #bfa14c;
+    margin-top: 30px;
+}
+
+/* Responsive layout */
+@media(max-width: 900px) {
+    .top-section {
+        flex-direction: column;
+        align-items: center;
     }
-    50% {
-        right: 10px; /* Move slightly left */
+
+    .bio {
+        text-align: center;
     }
-    100% {
-        right: 0;
+
+    .project-box img {
+        max-width: 100%;
     }
 }
+
