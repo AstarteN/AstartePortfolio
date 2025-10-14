@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing | Astarte Naimoli</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Centered word "Writing" */
+        .writing-hero {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .writing-hero h1 {
+            font-size: 3rem;
+            color: #ff66cc;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Bio section */
+        .bio {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 40px;
+            text-align: center;
+        }
+
+        .bio p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Project boxes */
+        .project-box {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .project-box h3 a {
+            text-decoration: none;
+            color: #ff66cc;
+        }
+
+        .project-box h3 a:hover {
+            text-decoration: underline;
+        }
+
+        .project-box p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Zura emphasis */
+        .zura-box {
+            background: linear-gradient(135deg, #ff66cc, #66ccff);
+            color: white;
+            border: 2px solid #ff66cc;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transform: scale(1.05);
+        }
+
+        .zura-box h3 a {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .zura-box h3 a:hover {
+            text-decoration: underline;
+        }
+
+        .zura-box p {
+            color: #f0f0f0;
+            font-weight: 500;
+        }
+
+        .zura-box:hover {
+            transform: scale(1.07);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        nav a.active {
+            color: #ff66cc;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #fff;
+            color: #222;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        header h1 {
+            margin-bottom: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #ff66cc;
+        }
+
+        .moving-image {
+            display: block;
+            margin: 20px auto;
+            width: 180px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Astarte Naimoli</h1>
+    <p>Design and Technology Major at Parsons The New School</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="film.html">Film Projects</a></li>
+            <li><a href="code.html">Code Projects</a></li>
+            <li><a href="design.html">Design Projects</a></li>
+            <li><a href="writing.html" class="active">Writing</a></li>
+        </ul>
+    </nav>
+</header>
+
+<img src="mepinkprof.png" alt="Astarte Naimoli" class="moving-image">
+
+<!-- "Writing" smaller and centered -->
+<section class="writing-hero">
+    <h1>Writing</h1>
+</section>
+
+<div class="bio">
+    <p>Astarte’s writing explores worlds of introspection, emotion, and transformation — from speculative fiction 
+    to poetic reflections on technology and humanity. Her pieces challenge narrative conventions and invite 
+    readers into surreal, emotionally vivid experiences.</p>
+</div>
+
+<!-- Writing project previews -->
+<div class="project-box zura-box">
+    <h3><a href="zura.html">Zura</a></h3>
+    <p>An ongoing novel that blends sci-fi and emotion, following Summer’s journey through war, love, and transformation.</p>
+</div>
+
+<div class="project-box">
+    <h3><a href="shortstories.html">Short Stories</a></h3>
+    <p>A collection of narratives that explore diverse worlds, characters, and emotional landscapes.</p>
+</div>
+
+<div class="project-box">
+    <h3><a href="essays.html">Essays & Reflections</a></h3>
+    <p>A collection of short written pieces on art, AI, and the human condition.</p>
+</div>
+
+<footer>
+    <p>&copy; 2025 Astarte Naimoli</p>
+</footer>
+
+</body>
+</html>
