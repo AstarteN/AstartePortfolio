@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astarte Naimoli's Portfolio</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+
+    <style>
+        /* Read Zura Button Styling */
+        .read-zura-container {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        .read-zura-button {
+            display: inline-block;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #ff6cb5, #ffcc33, #33ccff, #ff33cc);
+            background-size: 300% 300%;
+            animation: gradientAnimation 4s ease infinite;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .read-zura-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255,255,255,0.8);
+        }
+
+        @keyframes gradientAnimation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+    </style>
 </head>
 <body>
 
@@ -16,6 +50,7 @@
             <li><a href="film.html">Film Projects</a></li>
             <li><a href="code.html">Code Projects</a></li>
             <li><a href="design.html">Design Projects</a></li>
+            <li><a href="writing.html">Writing</a></li>
         </ul>
     </nav>
 </header>
@@ -32,20 +67,17 @@
             <p>Astarte (2002, Brooklyn, New York) is a versatile artist exploring the realms of writing, 
                 design, and film. Her work consists of vibrant diverse, pieces designed to deeply resonate 
                 with individuals through relatable, uplifting, and thought-provoking narratives. 
-                <br>
-                <br>
+                <br><br>
                 Primarily a writer and filmmaker, Astarte crafts pieces that invites users on a journey of self-reflection
                 and exploration. Whether weaving intricate worlds in fiction or constructing websites, she infuses 
                 a playful, colorful, and spontaneous spirit into her projects.
-                <br>
-                <br>
+                <br><br>
                 Astarte's design approach is characterized by a commitment to breaking conventional norms. From 
                 HTML websites to short films experimenting with various colors to convey emotions, she explores 
-                the boundaries of artistic expression. In her written work, such as "The Boom Bus," she challenges 
+                the boundaries of artistic expression. In her written work, she challenges 
                 traditional storytelling structures like The Hero’s Journey, embracing a mindset of what she likes 
                 to call "writing outside of the box."
-                <br>
-                <br>
+                <br><br>
                 Her inspiration emanates from a profound desire to enlighten audiences and provide a cheerful experience 
                 through her art. As she articulates, being an artist allows her to connect with people 
                 on a level that exceeds the ordinary, resonating with those who share her visionary perspective.
@@ -56,8 +88,7 @@
                  size of each asset Instagram claimed she had an interest in and altered its size in terms 
                  of accuracy. Challenging the precision of data representation and experimenting with innovative 
                  methods that one can utilize to visually display data.
-                 <br>
-                 <br>
+                 <br><br>
                  In her latest project, AI OR US, Astarte delves into the intersection of artificial intelligence 
                  and filmmaking by designing a series of short films, where one character’s script is entirely 
                  AI-generated, while the rest are written by Astarte herself. The challenge for viewers is to identify 
@@ -66,9 +97,7 @@
                  in the spring, represents the most complex version yet. With each new iteration, the task of 
                  detecting AI involvement grows more difficult, raising the overarching question: How human can AI 
                  become?
-
-                 <br>
-                 <br>
+                 <br><br>
                  Watch below!
             </p>
         </div>
@@ -89,6 +118,11 @@
             <img src="ai_or_us_thumbnail.png" alt="AI OR US Project Thumbnail" class="project-image">
             <div class="hover-text">Click Me to Watch</div>
         </a>
+    </div>
+
+    <!-- Read Zura Button -->
+    <div class="read-zura-container">
+        <a href="zura.html" class="read-zura-button">Read Zura Here</a>
     </div>
 
     <!-- Footer -->
