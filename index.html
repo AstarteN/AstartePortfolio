@@ -4,39 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astarte Naimoli's Portfolio</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Read Zura Button Styling */
+        /* General Body Styling */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfaf6; /* soft off-white */
+            color: #bfa14c; /* gold text */
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px 20px 10px;
+            background-color: #fdfaf6;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #bfa14c;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            margin: 10px 0 0;
+            font-weight: 300;
+            color: #8c7b42; /* deeper gold accent */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #bfa14c;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #8c7b42;
+        }
+
+        /* Profile Image moved to top-left */
+        .moving-image {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid #bfa14c;
+            object-fit: cover;
+            z-index: 1000;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 50px;
+            padding: 0 20px;
+        }
+
+        /* Two-column layout */
+        .two-column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .column {
+            min-width: 300px;
+        }
+
+        /* Bio on left */
+        .bio {
+            flex: 2;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .bio h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+            border-bottom: 2px solid #bfa14c;
+            padding-bottom: 5px;
+        }
+
+        /* Project Box */
+        .project-box {
+            flex: 1;
+            text-align: center;
+            margin-top: 10px; /* Nudge AI OR US up to align with bio */
+        }
+
+        .project-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 400;
+            border-bottom: 2px solid #bfa14c;
+            padding-bottom: 5px;
+        }
+
+        .project-box p {
+            margin-bottom: 15px;
+            color: #8c7b42;
+        }
+
+        .project-box img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            border: 2px solid #bfa14c;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-box img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #bfa14c;
+        }
+
+        /* Read Zura Button */
         .read-zura-container {
             text-align: center;
-            margin: 50px 0 30px;
+            margin: 20px 0 0; /* Move closer to AI OR US */
         }
 
         .read-zura-button {
             display: inline-block;
-            padding: 20px 40px;
-            font-size: 1.5rem;
+            padding: 15px 35px;
+            font-size: 1.3rem;
             font-weight: bold;
-            color: #fff;
+            color: #fdfaf6; /* white text */
+            background-color: #bfa14c; /* gold button */
+            border-radius: 10px;
             text-decoration: none;
-            border-radius: 15px;
-            background: linear-gradient(45deg, #ff6cb5, #ffcc33, #33ccff, #ff33cc);
-            background-size: 300% 300%;
-            animation: gradientAnimation 4s ease infinite;
-            box-shadow: 0 0 20px rgba(255,255,255,0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .read-zura-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(255,255,255,0.8);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #bfa14c;
         }
 
-        @keyframes gradientAnimation {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #bfa14c;
+            border-top: 1px solid #bfa14c;
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media(max-width: 900px) {
+            .two-column {
+                flex-direction: column;
+            }
+
+            .project-box {
+                margin-top: 0;
+            }
         }
     </style>
 </head>
@@ -44,7 +186,7 @@
 
 <header>
     <h1>Astarte Naimoli</h1>
-    <p>Design and Technology Major at Parsons The New School </p>
+    <p>Design and Technology Major at Parsons The New School</p>
     <nav>
         <ul>
             <li><a href="film.html">Film Projects</a></li>
@@ -55,77 +197,48 @@
     </nav>
 </header>
 
-<!-- Image of yourself centered below the header -->
+<!-- Profile Image in top-left -->
 <img src="mepinkprof.png" alt="Astarte Naimoli" class="moving-image">
 
 <div class="container">
 
-    <!-- Bio Section moved to the top -->
-    <div class="bio">
-        <div>
+    <div class="two-column">
+        <!-- Bio Section on Left -->
+        <div class="column bio">
             <h2>Bio</h2>
             <p>Astarte (2002, Brooklyn, New York) is a versatile artist exploring the realms of writing, 
-                design, and film. Her work consists of vibrant diverse, pieces designed to deeply resonate 
-                with individuals through relatable, uplifting, and thought-provoking narratives. 
+                design, and film. Her work consists of vibrant diverse pieces designed to deeply resonate 
+                with individuals through relatable, uplifting, and thought-provoking narratives.
                 <br><br>
-                Primarily a writer and filmmaker, Astarte crafts pieces that invites users on a journey of self-reflection
+                Primarily a writer and filmmaker, Astarte crafts pieces that invite users on a journey of self-reflection
                 and exploration. Whether weaving intricate worlds in fiction or constructing websites, she infuses 
                 a playful, colorful, and spontaneous spirit into her projects.
                 <br><br>
-                Astarte's design approach is characterized by a commitment to breaking conventional norms. From 
-                HTML websites to short films experimenting with various colors to convey emotions, she explores 
-                the boundaries of artistic expression. In her written work, she challenges 
-                traditional storytelling structures like The Hero’s Journey, embracing a mindset of what she likes 
-                to call "writing outside of the box."
+                Her design approach breaks conventional norms, from HTML websites to short films experimenting 
+                with color to convey emotions. In her written work, she challenges traditional storytelling structures 
+                like The Hero’s Journey, embracing a mindset of "writing outside of the box."
                 <br><br>
-                Her inspiration emanates from a profound desire to enlighten audiences and provide a cheerful experience 
-                through her art. As she articulates, being an artist allows her to connect with people 
-                on a level that exceeds the ordinary, resonating with those who share her visionary perspective.
-                Beyond her creative writing and design pursuits, Astarte engages in exploratory studies that push 
-                the boundaries of visual representation. For instance, she conducted a study analyzing her 
-                personal Instagram data, transforming it into an interactive game. Users play as the social
-                 media app, wandering through a neighborhood to hunt for her data. Astarte manipulated the 
-                 size of each asset Instagram claimed she had an interest in and altered its size in terms 
-                 of accuracy. Challenging the precision of data representation and experimenting with innovative 
-                 methods that one can utilize to visually display data.
-                 <br><br>
-                 In her latest project, AI OR US, Astarte delves into the intersection of artificial intelligence 
-                 and filmmaking by designing a series of short films, where one character’s script is entirely 
-                 AI-generated, while the rest are written by Astarte herself. The challenge for viewers is to identify 
-                 which script was created by the AI, with each film becoming progressively harder to discern. 
-                 The first few films are animated, but Astarte's upcoming live-action film, set to be released 
-                 in the spring, represents the most complex version yet. With each new iteration, the task of 
-                 detecting AI involvement grows more difficult, raising the overarching question: How human can AI 
-                 become?
-                 <br><br>
-                 Watch below!
+                Astarte also conducts exploratory studies that push the boundaries of visual representation. 
+                For instance, she analyzed her Instagram data and transformed it into an interactive game, manipulating 
+                asset size and accuracy to visualize data differently.
             </p>
+        </div>
+
+        <!-- AI OR US Section on Right -->
+        <div class="column project-box">
+            <h2>AI OR US</h2>
+            <p>Click below to participate in the study</p>
+            <a href="https://www.youtube.com/watch?v=QyO_diayf9M" target="_blank">
+                <img src="ai_or_us_thumbnail.png" alt="AI OR US Project Thumbnail">
+            </a>
+
+            <!-- Read Zura Button under AI OR US -->
+            <div class="read-zura-container">
+                <a href="zura.html" class="read-zura-button">Read Zura Here</a>
+            </div>
         </div>
     </div>
 
-    <!-- Latest Work Section moved to the middle -->
-    <div id="latest-work" class="latest-work">
-        <h2></h2>
-    </div>
-
-    <!-- AI OR US Section with clickable thumbnail -->
-    <div id="ai-or-us" class="project-box">
-        <h2>AI OR US</h2>
-        <p>Click Below to participate in the Study</p>
-        
-        <!-- Link to YouTube -->
-        <a href="https://www.youtube.com/watch?v=QyO_diayf9M" target="_blank" class="thumbnail-link">
-            <img src="ai_or_us_thumbnail.png" alt="AI OR US Project Thumbnail" class="project-image">
-            <div class="hover-text">Click Me to Watch</div>
-        </a>
-    </div>
-
-    <!-- Read Zura Button -->
-    <div class="read-zura-container">
-        <a href="zura.html" class="read-zura-button">Read Zura Here</a>
-    </div>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Astarte Naimoli</p>
     </footer>
@@ -134,3 +247,4 @@
 
 </body>
 </html>
+
