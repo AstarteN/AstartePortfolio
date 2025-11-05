@@ -1,171 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writing | Astarte Naimoli</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Centered word "Writing" */
-        .writing-hero {
-            text-align: center;
-            margin-top: 60px;
-            margin-bottom: 20px;
-            animation: fadeIn 2s ease-in-out;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing | Astarte Naimoli</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* General Body Styling */
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fdfaf6; /* soft off-white */
+        color: #bfa14c; /* gold text */
+    }
 
-        .writing-hero h1 {
-            font-size: 3rem;
-            color: #ffc266;
-            font-family: 'Georgia', serif;
-            letter-spacing: 2px;
-            margin: 0;
-        }
+    /* Header */
+    header {
+        text-align: center;
+        padding: 20px 20px 10px;
+        background-color: #fdfaf6;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    header h1 {
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 400;
+        letter-spacing: 2px;
+        color: #bfa14c;
+    }
 
-        /* Bio section */
-        .bio {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px 20px 40px;
-            text-align: center;
-        }
+    header h1 a {
+        text-decoration: none;
+        color: #bfa14c;
+    }
 
-        .bio p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
+    header p {
+        font-size: 1.1rem;
+        margin: 10px 0 0;
+        font-weight: 300;
+        color: #8c7b42; /* accent gold */
+    }
 
-        /* Project boxes */
-        .project-box {
-            max-width: 800px;
-            margin: 40px auto;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 15px;
+    }
 
-        .project-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-        }
+    nav ul li a {
+        text-decoration: none;
+        color: #bfa14c;
+        font-weight: 400;
+        transition: color 0.3s;
+    }
 
-        .project-box h3 a {
-            text-decoration: none;
-            color: #ff66cc;
-        }
+    nav ul li a:hover {
+        color: #8c7b42;
+    }
 
-        .project-box h3 a:hover {
-            text-decoration: underline;
-        }
+    nav ul li a.active {
+        font-weight: bold;
+        text-decoration: underline;
+    }
 
-        .project-box p {
-            font-size: 1rem;
-            color: #333;
-        }
+    /* Profile Image in top-left */
+    .moving-image {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 150px;
+        height: auto;
+        border-radius: 50%;
+        border: 3px solid #bfa14c;
+        object-fit: cover;
+        z-index: 1000;
+    }
 
-        /* Zura emphasis */
-        .zura-box {
-            background: linear-gradient(135deg, #ff66cc, #66ccff);
-            color: white;
-            border: 2px solid #ffd4f1;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-            transform: scale(1.05);
-        }
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 20px auto 50px;
+        padding: 0 20px;
+    }
 
-        .zura-box h3 a {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+    /* Bio Section */
+    .bio {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: #4a4a4a;
+        margin-bottom: 40px;
+        text-align: center;
+    }
 
-        .zura-box h3 a:hover {
-            text-decoration: underline;
-        }
+    /* Writing Project Boxes */
+    .projects-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+    }
 
-        .zura-box p {
-            color: #f0f0f0;
-            font-weight: 500;
-        }
+    .project-box {
+        background-color: #fffdf7;
+        border: 2px solid #bfa14c;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+    }
 
-        .zura-box:hover {
-            transform: scale(1.07);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
+    .project-box:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(191, 161, 76, 0.3);
+    }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9rem;
-            color: #555;
-        }
+    .project-box h3 a {
+        text-decoration: none;
+        color: #bfa14c;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
 
-        nav a.active {
-            color: #000000;
-            font-weight: bold;
-            text-decoration: underline;
-        }
+    .project-box h3 a:hover {
+        text-decoration: underline;
+    }
 
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', sans-serif;
-            background-color: #fff;
-            color: #222;
-        }
+    .project-box p {
+        font-size: 1rem;
+        color: #4a4a4a;
+        margin-top: 10px;
+    }
 
-        header {
-            text-align: center;
-            padding: 40px 20px 20px;
-        }
+    .zura-box {
+        background: linear-gradient(135deg, #ff66cc, #66ccff);
+        color: white;
+        border: 2px solid #ffd4f1;
+    }
 
-        header h1 {
-            margin-bottom: 5px;
-        }
+    .zura-box h3 a {
+        color: white;
+    }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px;
-        }
+    .zura-box p {
+        color: #f0f0f0;
+    }
 
-        nav ul li {
-            display: inline-block;
-            margin: 0 15px;
-        }
+    .zura-box:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #222;
-            font-weight: 500;
-        }
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 15px;
+        border-top: 1px solid #bfa14c;
+        color: #bfa14c;
+        margin-top: 50px;
+    }
 
-        nav ul li a:hover {
-            color: #ffe066;
-        }
+    footer a {
+        color: #bfa14c;
+        text-decoration: none;
+    }
 
-        .moving-image {
-            display: block;
-            margin: 20px auto;
-            width: 180px;
-            border-radius: 50%;
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media(max-width: 900px) {
+        .projects-section {
+            grid-template-columns: 1fr;
         }
-    </style>
+    }
+</style>
 </head>
 <body>
 
 <header>
-    <h1>Astarte Naimoli</h1>
+    <h1><a href="index.html">Astarte Naimoli</a></h1>
     <p>Design and Technology Major at Parsons The New School</p>
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="film.html">Film Projects</a></li>
             <li><a href="code.html">Code Projects</a></li>
             <li><a href="design.html">Design Projects</a></li>
@@ -174,33 +195,38 @@
     </nav>
 </header>
 
+<!-- Profile Image in top-left -->
 <img src="mepinkprof.png" alt="Astarte Naimoli" class="moving-image">
 
-<!-- "Writing" smaller and centered -->
-<section class="writing-hero">
-    <h1>Writing</h1>
-</section>
+<div class="container">
+    <div class="bio">
+        <p>Astarte’s writing explores worlds of introspection, emotion, and transformation — from speculative fiction 
+        to poetic reflections on technology and humanity. Her pieces challenge narrative conventions and invite 
+        readers into surreal, emotionally vivid experiences.</p>
+    </div>
 
-<div class="bio">
-    <p>Astarte’s writing explores worlds of introspection, emotion, and transformation — from speculative fiction 
-    to poetic reflections on technology and humanity. Her pieces challenge narrative conventions and invite 
-    readers into surreal, emotionally vivid experiences.</p>
-</div>
+    <section class="projects-section">
+        <div class="project-box zura-box">
+            <h3><a href="zura.html">Zura</a></h3>
+            <p>An ongoing novel that blends sci-fi and emotion, following Summer’s journey through war, love, and transformation.</p>
+        </div>
 
-<!-- Writing project previews -->
-<div class="project-box zura-box">
-    <h3><a href="zura.html">Zura</a></h3>
-    <p>An ongoing novel that blends sci-fi and emotion, following Summer’s journey through war, love, and transformation.</p>
-</div>
+        <div class="project-box">
+            <h3><a href="shortstories.html">Short Stories</a></h3>
+            <p>A collection of narratives that explore diverse worlds, characters, and emotional landscapes.</p>
+        </div>
 
-<div class="project-box">
-    <h3><a href="shortstories.html">Short Stories</a></h3>
-    <p>A collection of narratives that explore diverse worlds, characters, and emotional landscapes.</p>
-</div>
+        <div class="project-box">
+            <h3><a href="essays.html">Essays & Reflections</a></h3>
+            <p>A collection of short written pieces on art, AI, and the human condition.</p>
+        </div>
 
-<div class="project-box">
-    <h3><a href="essays.html">Essays & Reflections</a></h3>
-    <p>A collection of short written pieces on art, AI, and the human condition.</p>
+        <!-- New Scripts Section -->
+        <div class="project-box">
+            <h3><a href="scripts.html">Scripts</a></h3>
+            <p>A collection of original scripts in PDF format. Click to view and download each script.</p>
+        </div>
+    </section>
 </div>
 
 <footer>
@@ -209,3 +235,4 @@
 
 </body>
 </html>
+
