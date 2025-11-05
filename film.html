@@ -1,219 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astarte's Films</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Body styles */
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #fffaf0; /* ivory */
-            color: #333333;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Film | Astarte Naimoli</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* General Body Styling */
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fdfaf6; /* soft off-white */
+        color: #bfa14c; /* gold text */
+    }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 20px 20px 10px;
-            background-color: #fffaf0;
-        }
+    /* Header */
+    header {
+        text-align: center;
+        padding: 20px 20px 10px;
+        background-color: #fdfaf6;
+    }
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            color: #bfa14c; /* gold accent */
-            margin: 0;
-        }
+    header h1 {
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 400;
+        letter-spacing: 2px;
+        color: #bfa14c;
+    }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 15px 0;
-        }
+    header h1 a {
+        text-decoration: none;
+        color: #bfa14c;
+    }
 
-        .navbar a {
-            text-decoration: none;
-            color: #bfa14c;
-            font-weight: 400;
-            transition: color 0.3s;
-        }
+    header p {
+        font-size: 1.1rem;
+        margin: 10px 0 0;
+        font-weight: 300;
+        color: #8c7b42; /* deeper gold accent */
+    }
 
-        .navbar a:hover {
-            color: #8c7b42; /* deeper gold */
-        }
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 15px;
+    }
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 20px auto 50px;
-            padding: 0 20px;
-        }
+    nav ul li a {
+        text-decoration: none;
+        color: #bfa14c;
+        font-weight: 400;
+        transition: color 0.3s;
+    }
 
-        /* Bio section */
-        .bio {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: #333333;
-            margin-bottom: 40px;
-        }
+    nav ul li a:hover {
+        color: #8c7b42;
+    }
 
-        /* Film Section */
+    nav ul li a.active {
+        font-weight: bold;
+        text-decoration: underline;
+        color: #bfa14c;
+    }
+
+    /* Profile Image */
+    .moving-image {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 150px;
+        height: auto;
+        border-radius: 50%;
+        border: 3px solid #bfa14c;
+        object-fit: cover;
+        z-index: 1000;
+    }
+
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 20px auto 50px;
+        padding: 0 20px;
+    }
+
+    /* Bio section */
+    .bio {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: #4a4a4a;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    /* Film Section */
+    .film-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+    }
+
+    .film {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .film img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        display: block;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .film:hover img {
+        transform: scale(1.05);
+        opacity: 0.95;
+        box-shadow: 0 0 20px rgba(191, 161, 76, 0.3); /* subtle gold glow */
+    }
+
+    .project-link {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 12px 18px;
+        border-radius: 5px;
+        color: #fffaf0;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .film:hover .project-link {
+        display: block;
+    }
+
+    .project-link a {
+        color: #fffaf0;
+        text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 15px;
+        margin-top: 50px;
+        border-top: 1px solid #bfa14c;
+        color: #bfa14c;
+    }
+
+    footer a {
+        color: #bfa14c;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        color: #8c7b42;
+    }
+
+    /* Responsive */
+    @media(max-width: 900px) {
         .film-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr;
         }
-
-        .film {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .film img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
-            transition: transform 0.3s, opacity 0.3s;
-        }
-
-        .film:hover img {
-            transform: scale(1.05);
-            opacity: 0.95;
-            box-shadow: 0 0 20px rgba(191, 161, 76, 0.3); /* subtle gold glow */
-        }
-
-        .project-link {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 12px 18px;
-            border-radius: 5px;
-            color: #fffaf0;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .film:hover .project-link {
-            display: block;
-        }
-
-        .project-link a {
-            color: #fffaf0;
-            text-decoration: none;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 15px;
-            margin-top: 50px;
-            border-top: 1px solid #bfa14c;
-            color: #bfa14c;
-        }
-
-        footer a {
-            color: #bfa14c;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #8c7b42;
-        }
-
-        /* Responsive */
-        @media(max-width: 900px) {
-            .film-section {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
-    <h1>Astarte's Films</h1>
+    <h1><a href="index.html">Astarte Naimoli</a></h1>
+    <p>Design and Technology Major at Parsons The New School</p>
+    <nav>
+        <ul>
+            <li><a href="film.html" class="active">Film Projects</a></li>
+            <li><a href="code.html">Code Projects</a></li>
+            <li><a href="design.html">Design Projects</a></li>
+            <li><a href="writing.html">Writing</a></li>
+        </ul>
+    </nav>
 </header>
 
-<!-- Navigation bar -->
-<div class="navbar">
-    <a href="index.html">Main Page</a>
-    <a href="writing.html">Writing</a>
-    <a href="design.html">Design Projects</a>
-    <a href="code.html">Code Projects</a>
-</div>
+<!-- Profile Image -->
+<img src="mepinkprof.png" alt="Astarte Naimoli" class="moving-image">
 
 <div class="container">
     <div class="bio">
-        <p>Welcome to Astarte's Films page, where you can explore her cinematic creations.</p>
+        <p>Welcome to Astarte's Films — a collection of short films, scripts, and serialized storytelling crafted for fast-paced, emotionally engaging narratives designed for mobile-first, bingeable formats.</p>
     </div>
 
     <section class="film-section">
         <!-- Film 1 -->
         <div class="film">
-            <a href="https://www.youtube.com/watch?v=-Dh8EQxgKog" target="_blank">
-                <img src="aipart2.png" alt="Film 1">
-                <div class="project-link">Click to Watch</div>
-            </a>
+            <img src="aipart2.png" alt="Film 1">
+            <div class="project-link">
+                <a href="https://www.youtube.com/watch?v=-Dh8EQxgKog" target="_blank">Click to Watch</a>
+            </div>
         </div>
 
         <!-- Film 2 -->
         <div class="film">
-            <a href="https://www.youtube.com/watch?v=wRpBfTLQLN4" target="_blank">
-                <img src="aipart3.png" alt="Film 2">
-                <div class="project-link">Click to Watch</div>
-            </a>
+            <img src="aipart3.png" alt="Film 2">
+            <div class="project-link">
+                <a href="https://www.youtube.com/watch?v=wRpBfTLQLN4" target="_blank">Click to Watch</a>
+            </div>
         </div>
 
         <!-- Film 3 -->
         <div class="film">
-            <a href="https://www.youtube.com/watch?v=9ilamttUIiE&t=2s" target="_blank">
-                <img src="TheBallThumbnail.png" alt="Film 3">
-                <div class="project-link">Click to Watch</div>
-            </a>
+            <img src="TheBallThumbnail.png" alt="Film 3">
+            <div class="project-link">
+                <a href="https://www.youtube.com/watch?v=9ilamttUIiE&t=2s" target="_blank">Click to Watch</a>
+            </div>
         </div>
 
         <!-- Film 4 -->
         <div class="film">
-            <a href="https://www.youtube.com/watch?v=i3wLhBr-AoE&t=7s" target="_blank">
-                <img src="THEMANTHUMBNAIL.png" alt="Film 4">
-                <div class="project-link">Click to Watch</div>
-            </a>
+            <img src="THEMANTHUMBNAIL.png" alt="Film 4">
+            <div class="project-link">
+                <a href="https://www.youtube.com/watch?v=i3wLhBr-AoE&t=7s" target="_blank">Click to Watch</a>
+            </div>
         </div>
 
         <!-- Film 5 -->
         <div class="film">
-            <a href="https://www.youtube.com/watch?v=PxAHScji1Mk&t=1s" target="_blank">
-                <img src="iflukescouldkill.png" alt="Film 5">
-                <div class="project-link">Click to Watch</div>
-            </a>
+            <img src="iflukescouldkill.png" alt="Film 5">
+            <div class="project-link">
+                <a href="https://www.youtube.com/watch?v=PxAHScji1Mk&t=1s" target="_blank">Click to Watch</a>
+            </div>
         </div>
 
         <!-- Film 6 -->
         <div class="film">
-            <a href="https://youtu.be/LmjGlLSxnjw?si=Okk80MLGgs_620_4" target="_blank">
-                <img src="Film6.png" alt="Film 6">
-                <div class="project-link">Click to Watch</div>
-            </a>
+            <img src="Film6.png" alt="Film 6">
+            <div class="project-link">
+                <a href="https://youtu.be/LmjGlLSxnjw?si=Okk80MLGgs_620_4" target="_blank">Click to Watch</a>
+            </div>
         </div>
     </section>
 </div>
 
 <footer>
-    <p><a href="index.html">Back to Main Page</a></p>
+    <p>&copy; 2025 Astarte Naimoli</p>
 </footer>
 
 </body>
 </html>
+
