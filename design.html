@@ -1,309 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Astarte's Design Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design | Astarte Naimoli</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* General Body Styling */
     body {
-      font-family: "Georgia", serif;
-      background-color: #fffaf2; /* Ivory background */
-      color: #2c2c2c;
-      margin: 0;
-      padding: 0;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fdfaf6; /* soft off-white */
+        color: #bfa14c; /* gold text */
     }
 
+    /* Header */
     header {
-      background-color: #fff8e7; /* Soft ivory-gold tone */
-      color: #b8860b; /* Gold text */
-      text-align: center;
-      padding: 30px 0;
-      border-bottom: 2px solid #e6c87c;
+        text-align: center;
+        padding: 20px 20px 10px;
+        background-color: #fdfaf6;
     }
 
     header h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      letter-spacing: 1px;
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 400;
+        letter-spacing: 2px;
     }
 
-    /* Navbar styling */
-    nav {
-      background-color: #f5deb3; /* Light gold */
-      display: flex;
-      justify-content: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid #e6c87c;
+    header h1 a {
+        text-decoration: none;
+        color: #bfa14c;
     }
 
-    nav a {
-      color: #2c2c2c;
-      text-decoration: none;
-      padding: 14px 20px;
-      text-align: center;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: color 0.3s ease, background-color 0.3s ease;
+    header p {
+        font-size: 1.1rem;
+        margin: 10px 0 0;
+        font-weight: 300;
+        color: #8c7b42;
     }
 
-    nav a:hover {
-      background-color: #fff3cd;
-      color: #b8860b;
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 15px;
     }
 
-    /* Main container */
+    nav ul li a {
+        text-decoration: none;
+        color: #bfa14c;
+        font-weight: 400;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #8c7b42;
+    }
+
+    nav ul li a.active {
+        font-weight: bold;
+        text-decoration: underline;
+        color: #bfa14c;
+    }
+
+    /* Profile Image in top-left */
+    .moving-image {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 150px;
+        height: auto;
+        border-radius: 50%;
+        border: 3px solid #bfa14c;
+        object-fit: cover;
+        z-index: 1000;
+    }
+
+    /* Container */
     .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
+        max-width: 1200px;
+        margin: 20px auto 50px;
+        padding: 0 20px;
     }
 
-    /* Bio box */
+    /* Bio on top */
     .bio {
-      background-color: #fffdf7;
-      border: 1px solid #e6c87c;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 40px;
-      text-align: center;
-      font-weight: 500;
-      color: #4a4a4a;
-      font-size: 1.1rem;
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        text-align: center;
     }
 
-    /* Design grid */
+    /* Design Grid */
     .design-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 25px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
     }
 
     .design-card {
-      background-color: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-      border: 1px solid #e6c87c;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: #fdfaf6;
+        border-radius: 10px;
+        border: 2px solid #bfa14c;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .design-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        transform: scale(1.03);
+        box-shadow: 0 0 20px #bfa14c;
     }
 
     .design-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-bottom: 3px solid #e6c87c;
+        width: 100%;
+        height: auto;
+        display: block;
+        border-bottom: 2px solid #bfa14c;
     }
 
     .design-card .content {
-      padding: 20px;
+        padding: 15px;
+        text-align: center;
     }
 
     .design-card h3 {
-      font-size: 1.4rem;
-      color: #b8860b;
-      margin-bottom: 10px;
+        font-size: 1.5rem;
+        color: #bfa14c;
+        margin-bottom: 10px;
     }
 
     .design-card p {
-      font-size: 1rem;
-      color: #4a4a4a;
+        font-size: 1rem;
+        color: #8c7b42;
     }
 
-    /* Overlay */
     .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(255, 248, 231, 0.8);
-      color: #2c2c2c;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      font-weight: bold;
-      font-size: 1.2rem;
-      backdrop-filter: blur(2px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 250, 246, 0.85);
+        color: #bfa14c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        font-weight: bold;
+        font-size: 1.2rem;
     }
 
     .design-card:hover .overlay {
-      opacity: 1;
+        opacity: 1;
     }
 
     .overlay a {
-      color: #b8860b;
-      text-decoration: none;
-      background-color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: 1px solid #e6c87c;
-      transition: all 0.3s ease;
+        color: #bfa14c;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 2px solid #bfa14c;
+        transition: all 0.3s ease;
     }
 
     .overlay a:hover {
-      background-color: #fff8dc;
+        background-color: #fdfaf6;
+        box-shadow: 0 0 10px #bfa14c;
     }
 
     /* Soft Body Section */
     .soft-body-section {
-      margin-top: 60px;
-      background-color: #fffef8;
-      border: 1px solid #e6c87c;
-      border-radius: 12px;
-      padding: 40px;
+        margin-top: 60px;
+        padding: 40px;
+        text-align: center;
     }
 
     .soft-body-section h2 {
-      text-align: center;
-      color: #b8860b;
-      font-size: 2rem;
-      margin-bottom: 25px;
+        font-size: 2rem;
+        margin-bottom: 25px;
+        font-weight: 400;
+        color: #bfa14c;
     }
 
     .soft-body-section .description {
-      text-align: center;
-      color: #4a4a4a;
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-      line-height: 1.6;
+        font-size: 1.2rem;
+        color: #8c7b42;
+        margin-bottom: 25px;
+        line-height: 1.7;
     }
 
     .soft-body-images {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
     }
 
     .soft-body-images img {
-      width: 45%;
-      border-radius: 10px;
-      border: 1px solid #e6c87c;
-      transition: transform 0.3s ease;
+        max-width: 45%;
+        width: auto;
+        height: auto;
+        border-radius: 10px;
+        border: 2px solid #bfa14c;
+        transition: transform 0.3s ease;
     }
 
     .soft-body-images img:hover {
-      transform: scale(1.05);
+        transform: scale(1.05);
     }
 
     video {
-      display: block;
-      margin: 0 auto;
-      border-radius: 10px;
-      width: 60%;
-      border: 1px solid #e6c87c;
+        display: block;
+        margin: 20px auto;
+        max-width: 80%;
+        height: auto;
+        border-radius: 10px;
+        border: 2px solid #bfa14c;
     }
 
     footer {
-      background-color: #fff8e7;
-      color: #2c2c2c;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 50px;
-      border-top: 1px solid #e6c87c;
-      font-weight: 500;
+        text-align: center;
+        padding: 15px;
+        color: #bfa14c;
+        border-top: 1px solid #bfa14c;
+        margin-top: 30px;
     }
 
     footer a {
-      color: #b8860b;
-      text-decoration: none;
+        color: #bfa14c;
+        text-decoration: none;
     }
 
     footer a:hover {
-      text-decoration: underline;
+        color: #8c7b42;
     }
-  </style>
+
+    /* Responsive */
+    @media(max-width: 900px) {
+        .design-section {
+            grid-template-columns: 1fr;
+        }
+        .soft-body-images img {
+            max-width: 80%;
+        }
+    }
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Astarte's Design Portfolio</h1>
+    <h1><a href="index.html">Astarte Naimoli</a></h1>
+    <p>Design and Technology Major at Parsons The New School</p>
+    <nav>
+        <ul>
+            <li><a href="film.html">Film Projects</a></li>
+            <li><a href="code.html">Code Projects</a></li>
+            <li><a href="design.html" class="active">Design Projects</a></li>
+            <li><a href="writing.html">Writing</a></li>
+        </ul>
+    </nav>
 </header>
 
-<nav>
-  <a href="index.html">Main Page</a>
-  <a href="code.html">Code Projects</a>
-  <a href="film.html">Film Projects</a>
-</nav>
+<img src="mepinkprof.png" alt="Astarte Naimoli" class="moving-image">
 
 <div class="container">
-  <div class="bio">
-    <p>Welcome to Astarte's Design page — where creativity meets technology through interactive and visual experiments.</p>
-  </div>
-
-  <section class="design-section">
-    <div class="design-card">
-      <img src="elon.png" alt="Design 1">
-      <div class="content">
-        <h3>Musk's Mission</h3>
-        <p>A custom game created for Astarte's soft body controller using Arduino and conductive materials.</p>
-      </div>
-      <div class="overlay">
-        <a href="https://astarten.itch.io/musks-mission" target="_blank">Click me to view</a>
-      </div>
+    <div class="bio">
+        <p>Welcome to Astarte's Design page — where creativity meets technology through interactive and visual experiments.</p>
     </div>
 
-    <div class="design-card">
-      <img src="data.png" alt="Design 2">
-      <div class="content">
-        <h3>Insta Data Search</h3>
-        <p>A digital exploration of personal data visualized through a neighborhood-style interactive game.</p>
-      </div>
-      <div class="overlay">
-        <a href="https://astarten.itch.io/instadatasearch" target="_blank">Click me to view</a>
-      </div>
-    </div>
+    <section class="design-section">
+        <div class="design-card">
+            <img src="elon.png" alt="Musk's Mission">
+            <div class="content">
+                <h3>Musk's Mission</h3>
+                <p>A custom game created for Astarte's soft body controller using Arduino and conductive materials.</p>
+            </div>
+            <div class="overlay">
+                <a href="https://astarten.itch.io/musks-mission" target="_blank">Click me to view</a>
+            </div>
+        </div>
 
-    <div class="design-card">
-      <img src="scare.png" alt="Design 3">
-      <div class="content">
-        <h3>Horror Game</h3>
-        <p>One of Astarte’s first experiments with game design — eerie, immersive, and unexpected.</p>
-      </div>
-      <div class="overlay">
-        <a href="https://astarten.itch.io/my-game" target="_blank">Click me to view</a>
-      </div>
-    </div>
-  </section>
+        <div class="design-card">
+            <img src="data.png" alt="Insta Data Search">
+            <div class="content">
+                <h3>Insta Data Search</h3>
+                <p>A digital exploration of personal data visualized through a neighborhood-style interactive game.</p>
+            </div>
+            <div class="overlay">
+                <a href="https://astarten.itch.io/instadatasearch" target="_blank">Click me to view</a>
+            </div>
+        </div>
 
-  <section class="soft-body-section">
-    <h2>Soft Body Controller</h2>
-    <p class="description">
-      Astarte’s plush controller was created using a Flora, conductive thread, and fabric. The device allowed intuitive physical play and inspired new forms of tactile interaction in digital art.
-    </p>
+        <div class="design-card">
+            <img src="scare.png" alt="Horror Game">
+            <div class="content">
+                <h3>Horror Game</h3>
+                <p>One of Astarte’s first experiments with game design — eerie, immersive, and unexpected.</p>
+            </div>
+            <div class="overlay">
+                <a href="https://astarten.itch.io/my-game" target="_blank">Click me to view</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="soft-body-images">
-      <img src="controller1.png" alt="Controller Image 1">
-      <img src="controller2.png" alt="Controller Image 2">
-    </div>
+    <section class="soft-body-section">
+        <h2>Soft Body Controller</h2>
+        <p class="description">
+            Astarte’s plush controller was created using a Flora, conductive thread, and fabric. The device allowed intuitive physical play and inspired new forms of tactile interaction in digital art.
+        </p>
 
-    <video autoplay muted loop>
-      <source src="controller3.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </section>
+        <div class="soft-body-images">
+            <img src="controller1.png" alt="Controller Image 1">
+            <img src="controller2.png" alt="Controller Image 2">
+        </div>
+
+        <video autoplay muted loop playsinline>
+            <source src="controller3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
 </div>
 
 <footer>
-  <p><a href="index.html">Back to Main Page</a></p>
+    <p>&copy; 2025 Astarte Naimoli</p>
 </footer>
 
 </body>
