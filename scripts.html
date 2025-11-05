@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scripts | Astarte Naimoli</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fdfaf6;
+        color: #bfa14c;
+    }
+
+    header, footer {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 12px 24px;
+        margin: 15px 0;
+        border: 2px solid #bfa14c;
+        border-radius: 8px;
+        background-color: #fffdf7;
+        text-decoration: none;
+        color: #bfa14c;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: #bfa14c;
+        color: #fffdf7;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 20px auto 50px;
+        padding: 0 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    p.description {
+        text-align: center;
+        max-width: 800px;
+        margin: 10px auto 40px;
+        color: #4a4a4a;
+    }
+
+    .projects-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .project-box {
+        background-color: #fffdf7;
+        border: 2px solid #bfa14c;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-box:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(191, 161, 76, 0.3);
+    }
+
+    .project-box h3 a {
+        text-decoration: none;
+        color: #bfa14c;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .project-box h3 a:hover {
+        text-decoration: underline;
+    }
+
+    .project-box p {
+        font-size: 1rem;
+        color: #4a4a4a;
+        margin-top: 10px;
+    }
+
+    @media(max-width: 900px) {
+        .projects-section {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <a href="writing.html" class="button">← Back to Writing</a>
+</header>
+
+<div class="container">
+    <h1>Scripts</h1>
+    <p class="description">Here are my written scripts. Click to view or download each one.</p>
+
+    <section class="projects-section">
+        <div class="project-box">
+            <h3><a href="scripts/script1.pdf" target="_blank">Script 1</a></h3>
+            <p>A young girl senses something off about the son of her college president. 
+                When her best friend goes missing, she begins to suspect he may be involved.</p>
+        </div>
+
+        <div class="project-box">
+            <h3><a href="scripts/script2.pdf" target="_blank">Script 2</a></h3>
+            <p>A girl tries to summon the demon Typhoon after her cruel best friend pushes her too far—but 
+                the demon demands more than she expected.</p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <a href="writing.html" class="button">← Back to Writing</a>
+</footer>
+
+</body>
+</html>
