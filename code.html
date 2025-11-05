@@ -1,251 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Astarte's Code Projects</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Page reset */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    /* Page palette & typography */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code | Astarte Naimoli</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* General Body Styling */
     body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #fffaf0; /* ivory */
-      color: #333333;
-      line-height: 1.6;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fdfaf6; /* soft off-white */
+        color: #bfa14c; /* gold text */
     }
 
     /* Header */
     header {
-      background-color: #fffaf0;
-      padding: 30px 20px 10px;
-      text-align: center;
-      border-bottom: 1px solid #e6c87c;
+        text-align: center;
+        padding: 20px 20px 10px;
+        background-color: #fdfaf6;
     }
 
     header h1 {
-      color: #bfa14c; /* gold */
-      font-size: 2.6rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 400;
+        letter-spacing: 2px;
+        color: #bfa14c;
     }
 
-    /* Top nav */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      padding: 14px 0 22px;
-      background-color: transparent;
+    header h1 a {
+        text-decoration: none;
+        color: #bfa14c;
     }
 
-    nav a {
-      color: #bfa14c;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 10px;
-      transition: color 0.2s ease, background 0.2s ease;
+    header p {
+        font-size: 1.1rem;
+        margin: 10px 0 0;
+        font-weight: 300;
+        color: #8c7b42; /* deeper gold accent */
     }
 
-    nav a:hover {
-      color: #8c7b42;
-      background-color: rgba(191,161,76,0.06);
-      border-radius: 6px;
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 15px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #bfa14c;
+        font-weight: 400;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #8c7b42;
+    }
+
+    nav ul li a.active {
+        font-weight: bold;
+        text-decoration: underline;
+        color: #bfa14c;
+    }
+
+    /* Profile Image in top-left */
+    .moving-image {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 150px;
+        height: auto;
+        border-radius: 50%;
+        border: 3px solid #bfa14c;
+        object-fit: cover;
+        z-index: 1000;
     }
 
     /* Container */
     .container {
-      max-width: 1100px;
-      margin: 30px auto 80px;
-      padding: 0 20px;
+        max-width: 1200px;
+        margin: 20px auto 50px;
+        padding: 0 20px;
     }
 
+    /* Bio section */
     .bio {
-      background: #fffdf7;
-      border: 1px solid #e6c87c;
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 28px;
-      color: #4a4a4a;
-      font-size: 1.05rem;
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: #4a4a4a;
+        margin-bottom: 40px;
+        text-align: center;
     }
 
-    /* Projects list */
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
+    /* Projects Section */
+    .projects-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
     }
 
     .project {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      background: #fff;
-      border: 1px solid #e6c87c;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+        background-color: #fffaf6;
+        border: 2px solid #bfa14c;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
     }
 
-    .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+    .project img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-bottom: 2px solid #bfa14c;
+        transition: transform 0.3s, opacity 0.3s;
     }
 
-    /* Thumbnail column */
-    .project-thumb {
-      flex: 0 0 360px; /* fixed-ish column on wide screens */
-      max-width: 360px;
-      overflow: hidden;
-      background: #fffaf8;
+    .project:hover img {
+        transform: scale(1.05);
+        opacity: 0.95;
+        box-shadow: 0 0 20px rgba(191, 161, 76, 0.3);
     }
 
-    .project-thumb img {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease, filter 0.3s ease;
+    .project .content {
+        padding: 15px;
+        text-align: center;
     }
 
-    .project:hover .project-thumb img {
-      transform: scale(1.03);
-      filter: brightness(0.97);
-      box-shadow: 0 6px 18px rgba(191,161,76,0.12); /* subtle gold glow */
+    .project h3 {
+        font-size: 1.5rem;
+        color: #bfa14c;
+        margin-bottom: 10px;
     }
 
-    /* Content column */
-    .project-content {
-      padding: 22px;
-      flex: 1;
-      min-width: 0; /* prevents overflow */
+    .project p {
+        font-size: 1rem;
+        color: #8c7b42;
     }
 
-    .project-content h3 {
-      color: #b8860b;
-      margin-bottom: 8px;
-      font-size: 1.25rem;
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 250, 246, 0.85);
+        color: #bfa14c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        font-weight: bold;
+        font-size: 1.2rem;
     }
 
-    .project-content p {
-      color: #4a4a4a;
-      margin-bottom: 14px;
+    .project:hover .overlay {
+        opacity: 1;
     }
 
-    .project-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
+    .overlay a {
+        color: #bfa14c;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 2px solid #bfa14c;
+        transition: all 0.3s ease;
     }
 
-    .btn {
-      background: #bfa14c;
-      color: #fffaf0;
-      padding: 10px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(191,161,76,0.18);
-    }
-
-    .meta {
-      color: #8c7b42;
-      font-weight: 600;
-      font-size: 0.96rem;
+    .overlay a:hover {
+        background-color: #fdfaf6;
+        box-shadow: 0 0 10px #bfa14c;
     }
 
     /* Footer */
     footer {
-      max-width: 1100px;
-      margin: 40px auto 80px;
-      padding: 20px;
-      text-align: center;
-      color: #bfa14c;
-      border-top: 1px solid #e6c87c;
+        text-align: center;
+        padding: 15px;
+        margin-top: 50px;
+        border-top: 1px solid #bfa14c;
+        color: #bfa14c;
     }
 
-    footer a { color: #bfa14c; text-decoration: none; font-weight:700; }
+    footer a {
+        color: #bfa14c;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        color: #8c7b42;
+    }
 
     /* Responsive */
-    @media (max-width: 880px) {
-      .project { flex-direction: column; }
-      .project-thumb { flex: 0 0 auto; width: 100%; max-width: none; }
-      .project-thumb img { aspect-ratio: 16/9; }
-      .project-content { padding: 16px; }
-      .container { margin: 20px auto 60px; }
+    @media(max-width: 900px) {
+        .projects-section {
+            grid-template-columns: 1fr;
+        }
     }
-  </style>
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Astarte's Code Projects</h1>
+<header>
+    <h1><a href="index.html">Astarte Naimoli</a></h1>
+    <p>Design and Technology Major at Parsons The New School</p>
     <nav>
-      <a href="index.html">Main Page</a>
-      <a href="writing.html">Writing</a>
-      <a href="design.html">Design</a>
-      <a href="film.html">Film</a>
+        <ul>
+            <li><a href="film.html">Film Projects</a></li>
+            <li><a href="code.html" class="active">Code Projects</a></li>
+            <li><a href="design.html">Design Projects</a></li>
+            <li><a href="writing.html">Writing</a></li>
+        </ul>
     </nav>
-  </header>
+</header>
 
-  <main class="container">
-    <section class="bio">
-      <p>Here are a selection of recent websites and code experiments — small interactive pieces, playful interfaces, and creative APIs.</p>
-    </section>
+<img src="mepinkprof.png" alt="Astarte Naimoli" class="moving-image">
 
-    <section class="projects">
-      <article class="project">
-        <div class="project-thumb">
-          <a href="https://astarten.github.io/DeeplyNestedObject/index.html/" target="_blank" rel="noopener">
+<div class="container">
+    <div class="bio">
+        <p>Here are a selection of recent websites and code experiments — small interactive pieces, playful interfaces, and creative APIs.</p>
+    </div>
+
+    <section class="projects-section">
+        <div class="project">
             <img src="theory.png" alt="Deeply Nested Object project">
-          </a>
+            <div class="content">
+                <h3>DeeplyNestedObject — Interactive Demo</h3>
+                <p>A small interactive demo that explores nested data structures and live computations. Enter numbers and watch instant visual feedback driven by a lightweight API.</p>
+            </div>
+            <div class="overlay">
+                <a href="https://astarten.github.io/DeeplyNestedObject/index.html/" target="_blank">Click to View</a>
+            </div>
         </div>
 
-        <div class="project-content">
-          <h3>DeeplyNestedObject — Interactive Demo</h3>
-          <p>A small interactive demo that explores nested data structures and live computations. Enter numbers and watch instant visual feedback driven by a lightweight API.</p>
-
-          <div class="project-actions">
-            <a class="btn" href="https://astarten.github.io/DeeplyNestedObject/index.html/" target="_blank" rel="noopener">View Project</a>
-            <span class="meta">HTML • JS • Creative Coding</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="project-thumb">
-          <a href="https://astarten.github.io/LizziesPerspectives/" target="_blank" rel="noopener">
+        <div class="project">
             <img src="lizard.png" alt="Lizzie's Perspectives project">
-          </a>
+            <div class="content">
+                <h3>Lizzie's Perspectives</h3>
+                <p>A playful interactive walkthrough exploring perspective and surprise — built with careful attention to animation timing and responsive layout.</p>
+            </div>
+            <div class="overlay">
+                <a href="https://astarten.github.io/LizziesPerspectives/" target="_blank">Click to View</a>
+            </div>
         </div>
-
-        <div class="project-content">
-          <h3>Lizzie's Perspectives</h3>
-          <p>A playful interactive walkthrough exploring perspective and surprise — built with careful attention to animation timing and responsive layout.</p>
-
-          <div class="project-actions">
-            <a class="btn" href="https://astarten.github.io/LizziesPerspectives/" target="_blank" rel="noopener">View Project</a>
-            <span class="meta">HTML • CSS • JS</span>
-          </div>
-        </div>
-      </article>
     </section>
-  </main>
+</div>
 
-  <footer>
-    <p><a href="index.html">Back to Main Page</a></p>
-  </footer>
+<footer>
+    <p>&copy; 2025 Astarte Naimoli</p>
+</footer>
 
 </body>
 </html>
